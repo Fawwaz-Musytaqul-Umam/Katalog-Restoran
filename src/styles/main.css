@@ -96,10 +96,10 @@ img {
 
 .hero {
 	width: 100%;
-	min-height: 420px;
+	min-height: 435px;
 	background-image: url('../public/images/heros/hero-image.jpg');
 	background-size: cover;
-	background-position: center;
+	background-position: center -100px;
 }
 
 .hero-inner {
