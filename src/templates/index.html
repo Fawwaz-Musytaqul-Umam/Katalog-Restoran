@@ -1,17 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  
-  <title>Restaurant Apps Starter Project</title>
-</head>
-<body>
-  <h1>Restaurant Apps Starter Project</h1>
-  <p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-  <p>Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros sebagai background hero elemen</p>
-  <img src="./images/heros/hero-image_1.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_2.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_3.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_4.jpg" width="450" alt="">
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Cari Makan</title>
+	</head>
+	<body>
+		<header class="hero">
+			<div class="app-bar">
+				<span class="app-bar_logo">Cari Makan</span>
+
+				<nav class="drawer">
+					<ul>
+						<li class="nav-list_item">
+							<a href="#">Beranda</a>
+						</li>
+
+						<li class="nav-list_item">
+							<a href="#">Favorit</a>
+						</li>
+
+						<li class="nav-list_item">
+							<a href="https://github.com/fawwaz-musytaqul-umam" target="_blank"
+								>Tentang</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="hero-inner">
+				<h1 class="hero-title">Mau Makan di mana?</h1>
+				<p class="hero-tagline">Restoran terbaik dengan menu spesial ada di sini!</p>
+			</div>
+		</header>
+
+		<main>
+			<section class="content">
+				<h2 class="content-title">Jelajahi Restoran</h2>
+
+				<div class="restaurants" id="restaurants">
+					<article class="restaurant-item">
+						<div class="restaurant-item_city">
+							<span class="city_inner">Kota Bandung</span>
+						</div>
+
+						<img src="" alt="Gambar Restoran" class="restaurant-item_thumbnail" />
+
+						<div class="restaurant-item_content">
+							<p class="restaurant-item_rating">
+								Rating : <span class="rating-inner">4.5</span>
+							</p>
+
+							<h3 class="restaurant-item_title">Bandung Expresso</h3>
+
+							<p class="restaurant-item_description">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid
+								deleniti autem, alias ex adipisci dicta eaque nihil. Aut odio accusamus
+								ex. Sapiente, reprehenderit dicta?
+							</p>
+						</div>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<p>copyright &copy; 2023 - Cari Makan</p>
+		</footer>
+	</body>
 </html>
