@@ -1,5 +1,8 @@
 * {
-	margin: 0;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	margin-block-end: 0;
+	margin-block-start: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -27,9 +30,73 @@ img {
 	display: block;
 }
 
+/* 
+ * App Bar
+ *
+*/
+
+.app-bar {
+	min-height: 55px;
+	padding-inline: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff0e;
+	backdrop-filter: blur(7px);
+	box-shadow: 0 5px 5px #0000004d;
+}
+
+.app-bar_logo {
+	height: 100%;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: "Lobster Two", sans-serif;
+	letter-spacing: 1.5px;
+	color: wheat;
+
+}
+
+/* 
+ * Navigation
+ *
+*/
+
+.nav {
+  width: 70%;
+  text-align: center;
+}
+
+.nav-list {
+  width: 100%;
+}
+
+.nav-item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: calc(90% / 3);
+  text-align: center;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #616161;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* 
+ * Jumbotron 
+ *
+*/
+
 .hero {
 	width: 100%;
-	min-height: 400px;
+	min-height: 420px;
 	background-image: url('../public/images/heros/hero-image.jpg');
 	background-size: cover;
 	background-position: center;
@@ -50,4 +117,46 @@ img {
 	margin-top: 16px;
 	font-size: 18px;
 	font-weight: 300;
+}
+
+@media screen and (min-width: 455px) {
+  .headline__content {
+	padding: 16px;
+  }
+
+  .headline__title {
+	font-size: 28px;
+  }
+
+  .headline__description {
+	font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 499px) {
+	.nav {
+		position: absolute;
+		width: 100px;
+		z-index: 10;
+		transform: translate(-100px, 0);
+		transition: all 0.5s ease-in;
+	}
+
+	nav.open {
+		width: 100%;
+		transform: translate(0, 0);
+	}
+
+	.nav__item {
+		width: 100%;
+		padding: 18px 15px;
+		display: list-item;
+		list-style: none;
+		border-bottom: 1px solid #e0e0e0;
+		text-align: left;
+	}
+
+	.hero__title {
+		font-size: 8vmin;
+	}
 }
