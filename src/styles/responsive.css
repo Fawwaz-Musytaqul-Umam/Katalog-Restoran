@@ -1,0 +1,49 @@
+@media screen and (max-width: 499px) {
+	.app-bar {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 55px 1fr;
+		background-color: #6e67643a;
+		backdrop-filter: blur(10px);
+		box-shadow: 0 5px 5px #00000080;
+	}
+
+	.nav {
+		position: absolute;
+		height: max-content;
+		transform: translate(-500px, 0);
+		opacity: 0;
+		transition: transform 0.5s ease-in;
+	}
+
+	.nav.open {
+		position: relative;
+		padding-bottom: 20px;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+
+	.nav-list_item {
+		width: 100%;
+		padding: 18px 15px;
+		display: list-item;
+		list-style: none;
+		border-bottom: 1px solid #bbbbbb;
+		text-align: left;
+	}
+
+	.hero-title {
+		font-size: 8vmin;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.hero {
+		background-position: center -100px;
+	}
+
+	.menu-button {
+		display: none;
+	}
+}
