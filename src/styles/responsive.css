@@ -6,7 +6,6 @@
 
 	.nav {
 		position: absolute;
-		height: max-content;
 		transform: translate(-500px, 0);
 		opacity: 0;
 		transition: transform 0.5s ease-in;
