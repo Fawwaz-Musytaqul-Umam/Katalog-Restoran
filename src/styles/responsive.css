@@ -2,9 +2,6 @@
 	.app-bar {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 55px 1fr;
-		background-color: #6e67643a;
-		backdrop-filter: blur(10px);
-		box-shadow: 0 5px 5px #00000080;
 	}
 
 	.nav {
@@ -27,23 +24,34 @@
 	.nav-list_item {
 		width: 100%;
 		padding: 18px 15px;
-		display: list-item;
-		list-style: none;
+		display: inline-block;
 		border-bottom: 1px solid #bbbbbb;
 		text-align: left;
-	}
-
-	.hero-title {
-		font-size: 8vmin;
 	}
 }
 
 @media screen and (min-width: 500px) {
-	.hero {
-		background-position: center -100px;
-	}
-
 	.menu-button {
 		display: none;
+	}
+
+	.nav-list {
+		display: flex;
+		justify-content: space-evenly;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.hero {
+		min-height: 460px;
+	}
+
+	.hero-title {
+		letter-spacing: 3px;
+		font-size: 40px;
+	}
+
+	.hero-tagline {
+		font-size: 16px;
 	}
 }
