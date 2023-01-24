@@ -35,7 +35,7 @@ img {
 	box-shadow: 0 5px 6px #000000ab;
 }
 
-.hero-inner {
+.hero-content {
 	max-width: 700px;
 	margin: 90px auto 0;
 	padding: 15px;
@@ -67,11 +67,11 @@ img {
 	min-height: 55px;
 	padding: 0 15px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	overflow: hidden;
-	background-color: #6e67643a;
+	grid-template-columns: repeat(2, 1fr);
+	background-color: #12121469;
 	backdrop-filter: blur(10px);
 	box-shadow: 0 3px 10px #0000009f;
+	overflow: hidden;
 }
 
 .app-bar_logo {
@@ -104,11 +104,11 @@ img {
 }
 
 .nav-list_item {
-	display: inline-block;
 	width: 80px;
 	text-align: center;
 	line-height: 55px;
 	text-transform: uppercase;
+	display: inline-block;
 }
 
 .nav a {
@@ -120,4 +120,97 @@ img {
 .nav a:hover {
 	text-decoration: underline;
 	color: wheat;
+}
+
+/* 
+ * Main
+ *
+*/
+
+main {
+	width: 100%;
+	max-width: 1250px;
+	margin: auto;
+	color: #3a3a3a;
+}
+
+/* 
+ * content
+ *
+*/
+
+.content {
+	padding: 32px;
+}
+
+.content-title {
+	margin-block: 25px;
+	font-size: 20px;
+	text-align: center;
+}
+
+/* 
+ * restaurants wrapper
+ *
+*/
+
+.restaurants-wrapper {
+	display: grid;
+}
+
+/* 
+ * Restaurant Item
+ *
+*/
+
+.restaurant-item {
+	width: 100%;
+	margin: 16px 0;
+	background-color: whitesmoke;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.restaurant-item_thumb-wrapper {
+	height: 245px;
+	overflow: hidden;
+}
+
+.restaurant-item_thumbnail {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.restaurant-item_content {
+	padding: 16px 16px 32px;
+}
+
+/* 
+ * Footer
+ *
+*/
+
+footer {
+	height: 70px;
+	font-style: italic;
+	background-color: #121214;
+}
+
+footer p {
+	font-size: 16px;
+	color: whitesmoke;
+	text-align: center;
+	line-height: 70px;
+}
+
+footer a {
+	color: rgb(253, 242, 222);
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: wheat;
+	text-decoration: underline;
 }

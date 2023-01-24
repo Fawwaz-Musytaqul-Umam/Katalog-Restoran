@@ -40,6 +40,13 @@
 	}
 }
 
+@media screen and (min-width: 610px) {
+	.restaurants-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px 16px;
+	}
+}
+
 @media screen and (min-width: 768px) {
 	.hero {
 		min-height: 460px;
@@ -52,5 +59,16 @@
 
 	.hero-tagline {
 		font-size: 16px;
+	}
+
+	.content-title {
+		font-size: 24px;
+	}
+}
+
+@media screen and (min-width: 980px) {
+	.restaurants-wrapper {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px 25px;
 	}
 }

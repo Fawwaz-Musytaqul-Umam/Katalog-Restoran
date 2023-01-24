@@ -3,7 +3,7 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 
 const menu = document.querySelector('#menuButton');
-const heroInner = document.querySelector('.hero-inner');
+const heroContent = document.querySelector('.hero-content');
 const drawer = document.querySelector('#drawer');
 const main = document.querySelector('main');
 
@@ -11,9 +11,9 @@ menu.addEventListener('click', function () {
 	drawer.classList.toggle('open');
 
 	if (drawer.classList.contains('open')) {
-		heroInner.style.display = 'none';
+		heroContent.style.display = 'none';
 	} else {
-		heroInner.style.display = 'block';
+		heroContent.style.display = 'block';
 	}
 });
 
