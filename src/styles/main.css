@@ -21,6 +21,30 @@ img {
 }
 
 /* 
+ * Skip to content
+ *
+*/
+
+.skip-link {
+	top: -70px;
+	position: absolute;
+	padding: 10px 40px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: black;
+	background-color: rgb(255, 200, 61);
+	border: 2px solid chocolate;
+	border-radius: 0 5px 5px 0;
+	transition: top .3s ease;
+	z-index: 10;
+}
+
+.skip-link:focus {
+	top: 10px;
+
+}
+
+/* 
  * Header / Hero
  *
 */
@@ -48,10 +72,10 @@ img {
 }
 
 .hero-tagline {
-	color: #fff;
 	margin-top: 16px;
 	font-size: 12px;
 	font-weight: bold;
+	color: #fff;
 }
 
 .hero .highlight {
@@ -136,7 +160,7 @@ main {
 }
 
 /* 
- * content
+ * main -> content
  *
 */
 
@@ -151,7 +175,7 @@ main {
 }
 
 /* 
- * restaurants wrapper
+ * restaurants container
  *
 */
 
@@ -180,7 +204,7 @@ restaurant-item {
 	min-width: 120px;
 	padding: 8px 18px;
 	text-align: center;
-	background-color: #ffc83dc4;
+	background-color: rgba(255, 200, 61, 0.753);
 	border-radius: 0 7px 7px 0;
 	backdrop-filter: blur(5px);
 	box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.7);	
