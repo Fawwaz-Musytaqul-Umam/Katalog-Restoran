@@ -27,23 +27,29 @@
 		border-bottom: 1px solid #bbbbbb;
 		text-align: left;
 	}
+
 }
 
 @media screen and (min-width: 500px) {
 	.menu-button {
 		display: none;
 	}
-
+	
 	.nav-list {
 		display: flex;
 		justify-content: space-evenly;
 	}
+
 }
 
-@media screen and (min-width: 610px) {
-	.restaurants-wrapper {
+@media screen and (min-width: 680px) {
+	restaurants-container {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 10px 16px;
+	}
+
+	.restaurant-item_thumbnail {
+		height: 260px;
 	}
 }
 
@@ -64,11 +70,23 @@
 	.content-title {
 		font-size: 24px;
 	}
+
+	.restaurant-item_description {
+		font-size: 1.1em;
+	}
 }
 
 @media screen and (min-width: 980px) {
-	.restaurants-wrapper {
+	.content-title {
+		font-size: 24px;
+	}
+
+	restaurants-container {
 		grid-template-columns: repeat(3, 1fr);
 		gap: 16px 25px;
+	}
+
+	.restaurant-item_title {
+		font-size: 20px;
 	}
 }

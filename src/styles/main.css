@@ -79,6 +79,7 @@ img {
 	font-size: 1.5em;
 	font-weight: bold;
 	font-family: 'Lobster Two', sans-serif;
+	text-decoration: none;
 	letter-spacing: 1.5px;
 	line-height: 50px;
 	color: wheat;
@@ -154,7 +155,7 @@ main {
  *
 */
 
-.restaurants-wrapper {
+restaurants-container {
 	display: grid;
 }
 
@@ -163,7 +164,8 @@ main {
  *
 */
 
-.restaurant-item {
+restaurant-item {
+	position: relative;
 	width: 100%;
 	margin: 16px 0;
 	background-color: whitesmoke;
@@ -172,9 +174,20 @@ main {
 	overflow: hidden;
 }
 
-.restaurant-item_thumb-wrapper {
-	height: 245px;
-	overflow: hidden;
+.restaurant-item_city {
+	top: 10px;
+	position: absolute;
+	min-width: 120px;
+	padding: 8px 18px;
+	text-align: center;
+	background-color: #ffc83dc4;
+	border-radius: 0 7px 7px 0;
+	backdrop-filter: blur(5px);
+	box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.7);	
+}
+
+restaurant-item .city-name {
+	font-weight: bold;
 }
 
 .restaurant-item_thumbnail {
@@ -185,6 +198,15 @@ main {
 
 .restaurant-item_content {
 	padding: 16px 16px 32px;
+}
+
+.restaurant-item_rating {
+	font-weight: bold;
+}
+
+.restaurant-item_title {
+	margin-block: 5px;
+	font-size: 18px;
 }
 
 /* 
@@ -199,7 +221,7 @@ footer {
 }
 
 footer p {
-	font-size: 16px;
+	font-size: 14px;
 	color: whitesmoke;
 	text-align: center;
 	line-height: 70px;
