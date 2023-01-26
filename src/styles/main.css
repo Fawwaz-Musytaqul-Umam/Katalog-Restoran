@@ -20,6 +20,12 @@ img {
 	display: block;
 }
 
+a {
+	min-width: 44px;
+	min-height: 44px;
+	display: inline-block;
+}
+
 /* 
  * Skip to content
  *
@@ -129,7 +135,7 @@ img {
 }
 
 .nav-list_item {
-	width: 80px;
+	width: 70px;
 	text-align: center;
 	line-height: 55px;
 	text-transform: uppercase;
@@ -199,7 +205,7 @@ restaurant-item {
 }
 
 .restaurant-item_city {
-	top: 10px;
+	top: 20px;
 	position: absolute;
 	min-width: 120px;
 	padding: 8px 18px;
@@ -216,8 +222,10 @@ restaurant-item .city-name {
 
 .restaurant-item_thumbnail {
 	width: 100%;
+	color: whitesmoke;
 	object-fit: cover;
 	object-position: center;
+	background-color: gray
 }
 
 .restaurant-item_content {

@@ -1,6 +1,6 @@
 @media screen and (max-width: 499px) {
 	.app-bar {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr 100px;
 		grid-template-rows: 55px 1fr;
 	}
 

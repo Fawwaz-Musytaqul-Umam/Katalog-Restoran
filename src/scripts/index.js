@@ -22,4 +22,5 @@ menu.addEventListener('click', function(event) {
 
 main.addEventListener('click', function() {
     drawer.classList.remove('open');
+    heroContent.style.display = 'block';
 });
