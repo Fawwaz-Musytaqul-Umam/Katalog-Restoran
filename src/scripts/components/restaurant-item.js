@@ -14,7 +14,7 @@ class RestaurantItem extends HTMLElement {
 
 			<img
 				src="${this._data.pictureId}"
-				alt="Gambar Restoran: ${this._data.name}"
+				alt="Restoran: ${this._data.name}"
 				class="restaurant-item_thumbnail"
 			/>
 
