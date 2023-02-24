@@ -1,5 +1,5 @@
 {
-	"name": "restaurant-apps",
+	"name": "katalog-restoran",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -11,6 +11,14 @@
 	},
 	"keywords": [],
 	"author": "Fawwaz Musytaqul Umam <fawwazmusytaqulumam@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fawwaz-m-umam/Katalog-Restoran.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fawwaz-m-umam/Katalog-Restoran/issues"
+	},
+	"homepage": "https://github.com/fawwaz-m-umam/Katalog-Restoran#readme",
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "^7.18.5",

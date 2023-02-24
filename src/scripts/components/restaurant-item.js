@@ -1,4 +1,4 @@
-import CONFIG from "../global/config";
+import CONFIG from '../global/config';
 
 /* eslint-disable no-tabs */
 class RestaurantItem extends HTMLElement {

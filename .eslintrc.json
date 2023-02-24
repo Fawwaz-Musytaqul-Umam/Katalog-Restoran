@@ -24,6 +24,7 @@
 			{
 				"allowTemplateLiterals": true
 			}
-		]
+		],
+		"new-cap": "off"
 	}
 }
