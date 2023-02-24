@@ -45,7 +45,7 @@
 @media screen and (min-width: 680px) {
 	restaurants-container {
 		grid-template-columns: repeat(2, 1fr);
-		gap: 10px 16px;
+		gap: 10px 18px;
 	}
 
 	.restaurant-item_thumbnail {

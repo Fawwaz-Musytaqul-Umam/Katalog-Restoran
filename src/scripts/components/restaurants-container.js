@@ -1,13 +1,17 @@
 import './restaurant-item.js';
-import data from '../../DATA.json';
 
 class RestaurantsContainer extends HTMLElement {
-    connectedCallback() {
+    set restaurants(restaurants) {
+        this._restaurants = restaurants;
+        this.render();
+    }
+
+    render() {
         this.innerHTML = '';
 
-        data.restaurants.forEach((restaurant) => {
+        this._restaurants.forEach((restaurant) => {
             const restaurantItem = document.createElement('restaurant-item');
-            restaurantItem.data = restaurant;
+            restaurantItem.restaurant = restaurant;
 
             this.appendChild(restaurantItem);
         });

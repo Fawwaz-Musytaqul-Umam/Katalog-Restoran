@@ -2,25 +2,19 @@ import 'regenerator-runtime';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import './components/restaurants-container.js';
+import App from './views/app';
 
-// Menu
-const menu = document.querySelector('#menuButton');
-const heroContent = document.querySelector('.hero-content');
-const drawer = document.querySelector('#drawer');
-const main = document.querySelector('main');
-
-menu.addEventListener('click', function(event) {
-    drawer.classList.toggle('open');
-    event.stopPropagation();
-
-    if (drawer.classList.contains('open')) {
-        heroContent.style.display = 'none';
-    } else {
-        heroContent.style.display = 'block';
-    }
+const app = new App({
+    menuButton: document.querySelector('#menuButton'),
+    drawer: document.querySelector('#drawer'),
+    heroContent: document.querySelector('.hero-content'),
+    content: document.querySelector('#mainContent'),
 });
 
-main.addEventListener('click', function() {
-    drawer.classList.remove('open');
-    heroContent.style.display = 'block';
+window.addEventListener('hashchange', () => {
+    app.renderPage();
+});
+
+window.addEventListener('load', () => {
+    app.renderPage();
 });
