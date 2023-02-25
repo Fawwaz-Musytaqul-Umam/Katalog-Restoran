@@ -25,7 +25,7 @@ class RestaurantItem extends HTMLElement {
 					Rating : &#11088; ${this._restaurant.rating}
 				</span>
 
-				<h3 class="restaurant-item_title">
+				<h3 class="restaurant-item_name">
 					<a href="#/detail/${this._restaurant.id}">
 						${this._restaurant.name}
 					</a>

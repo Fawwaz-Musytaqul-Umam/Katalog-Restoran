@@ -4,9 +4,10 @@ import urlParser from '../../routes/url-parser';
 
 class Detail {
     static async render() {
-        return /* html */`
+        return /* html */ `
             <h2 class="content-title">Detail Restoran</h2>
             <restaurant-detail></restaurant-detail>
+            <i class='bx bx-heart like'></i>
         `;
     }
 
