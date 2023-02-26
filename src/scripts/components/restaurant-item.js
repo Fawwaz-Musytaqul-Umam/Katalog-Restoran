@@ -15,7 +15,7 @@ class RestaurantItem extends HTMLElement {
 			</div>
 
 			<img
-				src="${CONFIG.BASE_IMAGE_URL}/${this._restaurant.pictureId}"
+				src="${CONFIG.BASE_IMAGE_URL}${this._restaurant.pictureId}"
 				alt="Restoran: ${this._restaurant.name}"
 				class="restaurant-item_thumbnail"
 			/>

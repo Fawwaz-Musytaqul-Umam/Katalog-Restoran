@@ -11,44 +11,20 @@ class RestaurantDetail extends HTMLElement {
         this.render();
     }
 
-    menus() {
-        const {foods, drinks} = this._restaurant.menus;
-        let foodsTemplate = '';
-        let drinksTemplate = '';
-
-        foods.forEach((food) => {
-            foodsTemplate += /* html */`
-                <li>${food.name}</li>
-            `;
-        });
-
-        drinks.forEach((drink) => {
-            drinksTemplate += /* html */`
-                <li>${drink.name}</li>
-            `;
-        });
-
-        return /* html */`
-            <p>Makanan :</p>
-            <ul>${foodsTemplate}</ul>
-            <p>Minuman :</p>
-            <ul>${drinksTemplate}</ul>
-        `;
-    }
-
     render() {
         this.shadowDOM.innerHTML = /* html */ `
-            ${this.styles()}
+            ${this.createStylesTemplate()}
 
-            <div class="container">
+            <article class="container">
                 <img 
-                    src="${CONFIG.BASE_IMAGE_URL}/${this._restaurant.pictureId}"
+                    src="${CONFIG.BASE_IMAGE_URL}${this._restaurant.pictureId}"
                     alt="${this._restaurant.name}"
                     class="thumbnail">
 
                 <div class="city">
                     <p class="city-name">${this._restaurant.city}</p>
                 </div>
+
                 <div class="content">
                     <h3 class="name">${this._restaurant.name}</h3>
                     <p>Rating : &#11088;${this._restaurant.rating}</p>
@@ -57,25 +33,29 @@ class RestaurantDetail extends HTMLElement {
 
                     <div class="menus">
                         <h4 class="menu-title">Menu Makanan dan Minumam</h4>
-                        ${this.menus()}
+                        ${this.createMenusTemplate()}
                     </div>
                 </div>
-                <i class='bx bxs-heart like'></i>
-            </div>
+            </article>
         `;
     }
 
-    styles() {
+    createStylesTemplate() {
         return /* html */ `
             <style>
                 .container {
                     position: relative;
-                    width: 100%;
-                    margin: 16px 0;
+                    margin: 18px 0;
                     background-color: whitesmoke;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                     border-radius: 5px;
                     overflow: hidden;
+                }
+
+                .thumbnail {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
                 }
 
                 .city {
@@ -118,6 +98,31 @@ class RestaurantDetail extends HTMLElement {
                     font-size: 14px;
                 }
             </style>`;
+    }
+
+    createMenusTemplate() {
+        const {foods, drinks} = this._restaurant.menus;
+        let foodsTemplate = '';
+        let drinksTemplate = '';
+
+        foods.forEach((food) => {
+            foodsTemplate += /* html */ `
+                <li>${food.name}</li>
+            `;
+        });
+
+        drinks.forEach((drink) => {
+            drinksTemplate += /* html */ `
+                <li>${drink.name}</li>
+            `;
+        });
+
+        return /* html */ `
+            <p>Makanan :</p>
+            <ul>${foodsTemplate}</ul>
+            <p>Minuman :</p>
+            <ul>${drinksTemplate}</ul>
+        `;
     }
 };
 
