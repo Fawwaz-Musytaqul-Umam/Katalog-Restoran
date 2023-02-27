@@ -54,6 +54,11 @@
 }
 
 @media screen and (min-width: 768px) {
+	.like {
+		width: 55px;
+		height: 55px;
+	}
+
 	.hero {
 		min-height: 460px;
 	}

@@ -21,7 +21,7 @@ class Detail {
         const restaurantReviewsElement = document.querySelector('restaurant-reviews');
 
         restaurantDetailElement.restaurant = restaurantDetailData;
-        restaurantReviewsElement.reviews = restaurantDetailData.customerReviews;
+        restaurantReviewsElement.restaurant = restaurantDetailData;
     }
 };
 

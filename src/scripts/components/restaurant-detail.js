@@ -16,25 +16,28 @@ class RestaurantDetail extends HTMLElement {
             ${this.createStylesTemplate()}
 
             <article class="container">
-                <img 
-                    src="${CONFIG.BASE_IMAGE_URL}${this._restaurant.pictureId}"
-                    alt="${this._restaurant.name}"
-                    class="thumbnail">
-
                 <div class="city">
                     <p class="city-name">${this._restaurant.city}</p>
                 </div>
 
                 <div class="content">
-                    <h3 class="name">${this._restaurant.name}</h3>
-                    <p>Rating : &#11088;${this._restaurant.rating}</p>
-                    <p>Alamat : ${this._restaurant.address}</p>
-                    <P>${this._restaurant.description}</P>
+                    <img 
+                        src="${CONFIG.BASE_IMAGE_URL}/${this._restaurant.pictureId}"
+                        alt="${this._restaurant.name}"
+                        class="thumbnail"
+                    >
 
-                    <div class="menus">
-                        <h4 class="menu-title">Menu Makanan dan Minumam</h4>
-                        ${this.createMenusTemplate()}
+                    <div class="info">
+                        <h3 class="name">${this._restaurant.name}</h3>
+                        <p>Rating : &#11088;${this._restaurant.rating}</p>
+                        <p>Alamat : ${this._restaurant.address}</p>
+                        <P>${this._restaurant.description}</P>
                     </div>
+                </div>
+
+                <div class="menus">
+                    <h4 class="menu-title">Menu Makanan dan Minumam</h4>
+                    ${this.createMenusTemplate()}
                 </div>
             </article>
         `;
@@ -76,7 +79,7 @@ class RestaurantDetail extends HTMLElement {
                     color: black;
                 }
 
-                .content {
+                .info {
                     padding: 16px 16px 32px;
                 }
 
@@ -86,16 +89,39 @@ class RestaurantDetail extends HTMLElement {
                 }
 
                 .menus {
-                    margin-top: 15px;
+                    margin: 15px;
                     padding: 15px;
                     background-color: #ececec;
                     border-top: 1px solid gray;
                     border-bottom: 1px solid gray;
                 }
 
+                .menus-foods,
+                .menus-drinks {
+                    margin-block: 25px;
+                }
+
                 .menu-title {
                     margin-block: 7px;  
                     font-size: 14px;
+                }
+
+                @media screen and (min-width: 778px) {
+                    .container {
+                        display: grid;
+                        grid-template-columns: 53vw 1fr;
+                    }
+
+                    .content {
+                        font-size: 1.1em;
+                        border-right: 1px solid gray;
+                    }
+                    
+                    .menus {
+                        margin: 0;
+                        padding: 25px;
+                        border: none;
+                    }
                 }
             </style>`;
     }
@@ -118,10 +144,15 @@ class RestaurantDetail extends HTMLElement {
         });
 
         return /* html */ `
-            <p>Makanan :</p>
-            <ul>${foodsTemplate}</ul>
-            <p>Minuman :</p>
-            <ul>${drinksTemplate}</ul>
+            <div class="menus-foods">
+                <p><b>Makanan :</b></p>
+                <ul>${foodsTemplate}</ul>
+            </div>
+
+            <div class="menus-drinks">
+                <p><b>Minuman :</b></p>
+                <ul>${drinksTemplate}</ul>
+            </div>
         `;
     }
 };

@@ -1,4 +1,4 @@
-class urlParser {
+class UrlParser {
     static parseUrlWithCombiner() {
         const url = window.location.hash.slice(1).toLowerCase();
         const splitedUrl = this.prototype._urlSplitter(url);
@@ -24,4 +24,4 @@ class urlParser {
     }
 };
 
-export default urlParser;
+export default UrlParser;

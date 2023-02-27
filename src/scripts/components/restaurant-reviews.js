@@ -1,11 +1,14 @@
+import DicodingRestaurantApiSource from '../data/api/dicoding-restaurant-source';
+
 class RestaurantReviews extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({mode: 'open'});
     }
 
-    set reviews(reviews) {
-        this._reviews = reviews;
+    set restaurant(restaurant) {
+        this._reviews = restaurant.customerReviews;
+        this._restaurantId = restaurant.id;
         this.render();
     }
 
@@ -18,7 +21,7 @@ class RestaurantReviews extends HTMLElement {
                     <h3 class="title">Customer Reviews</h3>
                     ${this.createReviewsTemplate()}
                 </div>
-                <div class="add-reviews">
+                <div class="add-review">
                     <div class="inner">
                         <h3 class="title">Tambahkan Review</h3>
                         <div>
@@ -31,7 +34,7 @@ class RestaurantReviews extends HTMLElement {
                             <textarea 
                                 id="inputReviewDescription"
                                 class="input-review-description"
-                                placeholder="Deskripsi"
+                                placeholder="Review"
                             ></textarea>
                             <button type="submit" id="submitNewReview" class="submit-new-review">KIRIM</button>
                         </div>
@@ -39,6 +42,11 @@ class RestaurantReviews extends HTMLElement {
                 </div>
             </article>
         `;
+        const submitNewReviewBtn = this.shadowDOM.querySelector('#submitNewReview');
+        submitNewReviewBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            this.sendReviewData();
+        });
     }
 
     createStylesTemplate() {
@@ -70,7 +78,7 @@ class RestaurantReviews extends HTMLElement {
                 }
 
                 .customer-icon {
-                    height: 80%;
+                    height: 70%;
                     margin-block: auto;
                 }
 
@@ -84,33 +92,34 @@ class RestaurantReviews extends HTMLElement {
                     color: gray;
                 }
 
-                .add-reviews {
+                .add-review {
                     margin-top: 35px;
                     box-shadow: 2px 2px 4px rgba(000, 000, 000, 0.3);
                     background-color: #dfdfdf;
                     border-radius: 5px;
                 }
 
-                .add-reviews .inner {
+                .add-review .inner {
                     max-width: 630px;
                     margin: auto;
                     padding: 20px 15px;
                 }
 
-                .add-reviews .inner div {
+                .add-review .inner div {
                     display: grid;
                     row-gap: 13px;
                     grid-template-rows: 45px 1fr 55px;
                 }
 
-                .add-reviews .inner div input,
-                .add-reviews .inner div textarea {
+                .add-review .inner div input,
+                .add-review .inner div textarea {
                     padding: 10px;
                     border: 1px solid gray;
                     border-radius: 10px;
                 }
 
-                .add-reviews .inner .input-review-description {
+                .add-review .inner .input-review-description {
+                    min-height: 70px;
                     resize: vertical;
                 }
 
@@ -165,6 +174,21 @@ class RestaurantReviews extends HTMLElement {
 
         return reviewsTemplate;
     }
-};
+
+    sendReviewData() {
+        const name = this.shadowDOM.querySelector('#inputReviewName').value;
+        const review = this.shadowDOM.querySelector('#inputReviewDescription').value;
+
+        if (!name && !review) return;
+
+        const newReview = {
+            id: this._restaurantId,
+            name,
+            review,
+        };
+
+        DicodingRestaurantApiSource.addNewReview(newReview);
+    }
+}
 
 customElements.define('restaurant-reviews', RestaurantReviews);
