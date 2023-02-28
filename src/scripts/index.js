@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import './components/restaurants-container.js';
+import swRegister from './utils/sw-register';
 import App from './views/app';
 
 const app = new App({
@@ -18,6 +19,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
     app.renderPage();
+    swRegister();
 });
 
 window.addEventListener('offline', () => {
