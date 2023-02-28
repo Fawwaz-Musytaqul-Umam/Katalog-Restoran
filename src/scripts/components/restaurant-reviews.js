@@ -3,12 +3,12 @@ import DicodingRestaurantApiSource from '../data/api/dicoding-restaurant-source'
 class RestaurantReviews extends HTMLElement {
     constructor() {
         super();
+        this.restaurantId = null;
         this.shadowDOM = this.attachShadow({mode: 'open'});
     }
 
-    set restaurant(restaurant) {
-        this._reviews = restaurant.customerReviews;
-        this._restaurantId = restaurant.id;
+    set reviews(reviews) {
+        this._reviews = reviews;
         this.render();
     }
 
@@ -175,19 +175,20 @@ class RestaurantReviews extends HTMLElement {
         return reviewsTemplate;
     }
 
-    sendReviewData() {
+    async sendReviewData() {
         const name = this.shadowDOM.querySelector('#inputReviewName').value;
         const review = this.shadowDOM.querySelector('#inputReviewDescription').value;
 
         if (!name && !review) return;
 
         const newReview = {
-            id: this._restaurantId,
+            id: this.restaurantId,
             name,
             review,
         };
 
-        DicodingRestaurantApiSource.addNewReview(newReview);
+        const response = await DicodingRestaurantApiSource.addNewReview(newReview);
+        this.reviews = response;
     }
 }
 

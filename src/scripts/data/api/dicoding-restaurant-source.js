@@ -9,12 +9,14 @@ class DicodingRestaurantApiSource {
             const response = await fetch(API_ENDPOINT.ALL_RESTAURANTS);
             const responseJson = await response.json();
 
-            this.prototype.removeLoading();
-            return responseJson.restaurants;
+            if (!responseJson.error) {
+                this.prototype.removeLoading();
+                return responseJson.restaurants;
+            }
         } catch (error) {
             setTimeout(() => {
                 this.prototype.removeLoading();
-                this.prototype.showResponseMessage();
+                this.prototype.showErrorMessage(error);
             }, 5000);
         }
     }
@@ -26,8 +28,10 @@ class DicodingRestaurantApiSource {
             const response = await fetch(API_ENDPOINT.DETAIL(id));
             const responseJson = await response.json();
 
-            this.prototype.removeLoading();
-            return responseJson.restaurant;
+            if (!responseJson.error) {
+                this.prototype.removeLoading();
+                return responseJson.restaurant;
+            }
         } catch (error) {
             setTimeout(() => {
                 this.prototype.removeLoading();
@@ -46,12 +50,13 @@ class DicodingRestaurantApiSource {
                 body: JSON.stringify(body),
             };
 
-            const restaurantReviewsElement = document.querySelector('restaurant-reviews');
             const response = await fetch(API_ENDPOINT.ADD_REVIEW, options);
             const responseJson = await response.json();
 
-            this.prototype.showResponseMessage();
-            restaurantReviewsElement.restaurant = responseJson;
+            if (!responseJson.error) {
+                this.prototype.showSuccessMessage();
+                return responseJson.customerReviews;
+            };
         } catch (error) {
             setTimeout(() => {
                 this.prototype.showErrorMessage(error);
@@ -61,14 +66,15 @@ class DicodingRestaurantApiSource {
 
     displayLoading() {
         const mainContent = document.querySelector('#mainContent');
-        const loader = document.createElement('div');
-        loader.classList.add('loading');
-        mainContent.appendChild(loader);
+        const loading = document.createElement('div');
+
+        loading.classList.add('loading');
+        mainContent.appendChild(loading);
     }
 
     removeLoading() {
-        const loader = document.querySelector('.loading');
-        loader.remove();
+        const loading = document.querySelector('.loading');
+        loading.remove();
     }
 
     showErrorMessage(message) {
@@ -84,7 +90,7 @@ class DicodingRestaurantApiSource {
         });
     }
 
-    showResponseMessage() {
+    showSuccessMessage() {
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
