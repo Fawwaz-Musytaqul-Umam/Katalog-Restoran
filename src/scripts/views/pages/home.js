@@ -12,6 +12,7 @@ const home = {
     async afterRender() {
         const allRestaurantsData = await DicodingRestaurantApiSource.allRestaurants();
         const restaurantsContainer = document.querySelector('restaurants-container');
+
         restaurantsContainer.restaurants = allRestaurantsData;
     },
 };

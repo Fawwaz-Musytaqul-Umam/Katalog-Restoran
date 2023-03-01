@@ -65,6 +65,17 @@ a {
 }
 
 /* 
+ * Favorite
+ *
+*/
+
+.no-favorite-restaurant {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* 
  * Header / Hero
  *
 */

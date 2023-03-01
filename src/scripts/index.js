@@ -23,26 +23,27 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('offline', () => {
-    Swal.fire({
-        position: 'top',
+    showNetworkStatus({
         icon: 'error',
-        imageWidth: '50px',
-        imageHeight: '50px',
-        title: 'Anda sedang offline',
-        showConfirmButton: false,
-        timer: 2000,
+        title: 'Anda sedang Offline',
     });
 });
 
 window.addEventListener('online', () => {
-    Swal.fire({
-        position: 'top',
+    showNetworkStatus({
         icon: 'success',
-        imageWidth: '50px',
-        imageHeight: '50px',
-        title: 'Kembali Online',
-        showConfirmButton: false,
-        timer: 2000,
+        title: 'Anda sudah Online',
     });
-    app.renderPage();
 });
+
+function showNetworkStatus({icon, title}) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3010,
+        timerProgressBar: true,
+    });
+
+    Toast.fire({icon, title});
+};

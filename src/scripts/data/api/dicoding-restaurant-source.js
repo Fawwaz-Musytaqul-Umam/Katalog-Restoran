@@ -1,46 +1,46 @@
 import Swal from 'sweetalert2';
 import API_ENDPOINT from '../../global/api-endpoint';
 
-class DicodingRestaurantApiSource {
-    static async allRestaurants() {
+const DicodingRestaurantApiSource = {
+    async allRestaurants() {
         try {
-            this.prototype.displayLoading();
+            this._displayLoading();
 
             const response = await fetch(API_ENDPOINT.ALL_RESTAURANTS);
             const responseJson = await response.json();
 
             if (!responseJson.error) {
-                this.prototype.removeLoading();
+                this._removeLoading();
                 return responseJson.restaurants;
             }
         } catch (error) {
             setTimeout(() => {
-                this.prototype.removeLoading();
-                this.prototype.showErrorMessage(error);
+                this._removeLoading();
+                this._showErrorMessage(error);
             }, 5000);
         }
-    }
+    },
 
-    static async detailRestaurant(id) {
+    async detailRestaurant(id) {
         try {
-            this.prototype.displayLoading();
+            this._displayLoading();
 
             const response = await fetch(API_ENDPOINT.DETAIL(id));
             const responseJson = await response.json();
 
             if (!responseJson.error) {
-                this.prototype.removeLoading();
+                this._removeLoading();
                 return responseJson.restaurant;
             }
         } catch (error) {
             setTimeout(() => {
-                this.prototype.removeLoading();
-                this.prototype.showErrorMessage(error);
+                this._removeLoading();
+                this._showErrorMessage(error);
             }, 5000);
         }
-    }
+    },
 
-    static async addNewReview(body) {
+    async addNewReview(body) {
         try {
             const options = {
                 method: 'POST',
@@ -54,30 +54,30 @@ class DicodingRestaurantApiSource {
             const responseJson = await response.json();
 
             if (!responseJson.error) {
-                this.prototype.showSuccessMessage();
+                this._showSuccessMessage();
                 return responseJson.customerReviews;
             };
         } catch (error) {
             setTimeout(() => {
-                this.prototype.showErrorMessage(error);
+                this._showErrorMessage(error);
             }, 5000);
         }
-    }
+    },
 
-    displayLoading() {
+    _displayLoading() {
         const mainContent = document.querySelector('#mainContent');
         const loading = document.createElement('div');
 
         loading.classList.add('loading');
         mainContent.appendChild(loading);
-    }
+    },
 
-    removeLoading() {
+    _removeLoading() {
         const loading = document.querySelector('.loading');
         loading.remove();
-    }
+    },
 
-    showErrorMessage(message) {
+    _showErrorMessage(message) {
         Swal.fire({
             icon: 'error',
             title: '_ERROR_',
@@ -88,9 +88,9 @@ class DicodingRestaurantApiSource {
                         Laporkan Masalah
                     </a>`,
         });
-    }
+    },
 
-    showSuccessMessage() {
+    _showSuccessMessage() {
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -103,7 +103,7 @@ class DicodingRestaurantApiSource {
             icon: 'success',
             title: 'Berhasil Mengirim Review',
         });
-    }
+    },
 };
 
 export default DicodingRestaurantApiSource;

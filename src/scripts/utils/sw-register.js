@@ -12,7 +12,7 @@ const swRegister = async () => {
     try {
         await wb.register();
     } catch (error) {
-        console.log('Failed to register service worker', error);
+        console.error('Failed to register service worker', error);
     }
 };
 
