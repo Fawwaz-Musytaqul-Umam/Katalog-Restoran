@@ -32,7 +32,7 @@ window.addEventListener('offline', () => {
 window.addEventListener('online', () => {
     showNetworkStatus({
         icon: 'success',
-        title: 'Anda sudah Online',
+        title: 'Anda sudah terhubung ke internet',
     });
 });
 

@@ -17,7 +17,6 @@ class Detail {
     static async afterRender() {
         const url = urlParser.parseUrlWithoutCombiner();
         const restaurantDetailData = await DicodingRestaurantApiSource.detailRestaurant(url.id);
-
         const restaurantDetailElement = document.querySelector('restaurant-detail');
         const restaurantReviewsElement = document.querySelector('restaurant-reviews');
 

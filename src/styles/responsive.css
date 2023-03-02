@@ -76,6 +76,10 @@
 		font-size: 24px;
 	}
 
+	.no-favorite-restaurant {
+		font-size: 16px;
+	}
+
 	.restaurant-item_description {
 		font-size: 1.1em;
 	}

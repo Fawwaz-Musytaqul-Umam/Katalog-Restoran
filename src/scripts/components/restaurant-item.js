@@ -8,31 +8,33 @@ class RestaurantItem extends HTMLElement {
     }
 
     render() {
+        const {city, pictureId, name, rating, id, description} = this._restaurant;
+
         this.innerHTML = /* html*/ `
         <article>
 			<div class="restaurant-item_city">
-				<span class="city-name">${this._restaurant.city}</span>
+				<span class="city-name">${city}</span>
 			</div>
 
 			<img
-				src="${CONFIG.BASE_IMAGE_URL}/${this._restaurant.pictureId}"
-				alt="Restoran: ${this._restaurant.name}"
+				src="${CONFIG.BASE_IMAGE_URL}/${pictureId}"
+				alt="Restoran: ${name}"
 				class="restaurant-item_thumbnail"
 			/>
 
 			<div class="restaurant-item_content">
 				<span class="restaurant-item_rating">
-					Rating : &#11088; ${this._restaurant.rating}
+					Rating : &#11088; ${rating}
 				</span>
 
 				<h3 class="restaurant-item_name">
-					<a href="#/detail/${this._restaurant.id}">
-						${this._restaurant.name}
+					<a href="#/detail/${id}">
+						${name}
 					</a>
 				</h3>
 
 				<p class="restaurant-item_description">
-					${this._restaurant.description}
+					${description}
 				</p>
 			</div>
 		</article>`;

@@ -12,26 +12,28 @@ class RestaurantDetail extends HTMLElement {
     }
 
     render() {
+        const {city, pictureId, name, rating, address, description} = this._restaurant;
+
         this.shadowDOM.innerHTML = /* html */ `
             ${this.createStylesTemplate()}
 
             <article class="container">
                 <div class="city">
-                    <p class="city-name">${this._restaurant.city}</p>
+                    <p class="city-name">${city}</p>
                 </div>
 
                 <div class="content">
                     <img 
-                        src="${CONFIG.BASE_IMAGE_URL}/${this._restaurant.pictureId}"
+                        src="${CONFIG.BASE_IMAGE_URL}/${pictureId}"
                         alt="${this._restaurant.name}"
                         class="thumbnail"
                     >
 
                     <div class="info">
-                        <h3 class="name">${this._restaurant.name}</h3>
-                        <p>Rating : &#11088;${this._restaurant.rating}</p>
-                        <p>Alamat : ${this._restaurant.address}</p>
-                        <P>${this._restaurant.description}</P>
+                        <h3 class="name">${name}</h3>
+                        <p>Rating : &#11088;${rating}</p>
+                        <p>Alamat : ${address}</p>
+                        <P>${description}</P>
                     </div>
                 </div>
 
@@ -132,15 +134,11 @@ class RestaurantDetail extends HTMLElement {
         let drinksTemplate = '';
 
         foods.forEach((food) => {
-            foodsTemplate += /* html */ `
-                <li>${food.name}</li>
-            `;
+            foodsTemplate += /* html */ `<li>${food.name}</li>`;
         });
 
         drinks.forEach((drink) => {
-            drinksTemplate += /* html */ `
-                <li>${drink.name}</li>
-            `;
+            drinksTemplate += /* html */ `<li>${drink.name}</li>`;
         });
 
         return /* html */ `

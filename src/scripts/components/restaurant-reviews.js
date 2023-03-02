@@ -179,7 +179,7 @@ class RestaurantReviews extends HTMLElement {
         const name = this.shadowDOM.querySelector('#inputReviewName').value;
         const review = this.shadowDOM.querySelector('#inputReviewDescription').value;
 
-        if (!name && !review) return;
+        if (!name && !review && !this.restaurantId) return;
 
         const newReview = {
             id: this.restaurantId,

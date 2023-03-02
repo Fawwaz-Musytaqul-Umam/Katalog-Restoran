@@ -73,8 +73,7 @@ const DicodingRestaurantApiSource = {
     },
 
     _removeLoading() {
-        const loading = document.querySelector('.loading');
-        loading.remove();
+        document.querySelector('.loading').remove();
     },
 
     _showErrorMessage(message) {
