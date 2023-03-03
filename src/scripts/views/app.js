@@ -27,6 +27,12 @@ class App {
 
         this.content.innerHTML = await page.render();
         await page.afterRender();
+
+        const skipLinkElement = document.querySelector('.skip-link');
+        skipLinkElement.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.querySelector('#mainContent').focus();
+        });
     }
 };
 

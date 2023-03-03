@@ -52,6 +52,11 @@ class RestaurantReviews extends HTMLElement {
     createStylesTemplate() {
         return /* html */ `
             <style>
+                button {
+                    min-width: 44px;
+                    min-height: 44px;
+                }
+
                 .container {
                     margin: 16px 0;
                     padding: 16px 20px 32px;
@@ -108,7 +113,7 @@ class RestaurantReviews extends HTMLElement {
                 .add-review .inner div {
                     display: grid;
                     row-gap: 13px;
-                    grid-template-rows: 45px 1fr 55px;
+                    grid-template-rows: 45px 1fr 46px;
                 }
 
                 .add-review .inner div input,
@@ -125,8 +130,9 @@ class RestaurantReviews extends HTMLElement {
 
                 .submit-new-review {
                     width: 50%;
+                    height: 100%;
                     margin: auto;
-                    padding: 10px;
+                    padding: 7px;
                     background-color: wheat;
                     border: 1px solid gray;
                     border-radius: 7px;
