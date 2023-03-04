@@ -58,9 +58,7 @@ const DicodingRestaurantApiSource = {
                 return responseJson.customerReviews;
             };
         } catch (error) {
-            setTimeout(() => {
-                this._showErrorMessage(error);
-            }, 5000);
+            this._showErrorMessage(error);
         }
     },
 
@@ -69,6 +67,7 @@ const DicodingRestaurantApiSource = {
         const loading = document.createElement('div');
 
         loading.classList.add('loading');
+
         mainContent.appendChild(loading);
     },
 
@@ -77,16 +76,27 @@ const DicodingRestaurantApiSource = {
     },
 
     _showErrorMessage(message) {
-        Swal.fire({
-            icon: 'error',
-            title: '_ERROR_',
-            text: message,
+        const Toast = Swal.mixin({
             timer: 10000,
-            footer: /* html */
-                    `<a href="https://github.com/fawwaz-m-umam/Katalog-Restoran/issues">
-                        Laporkan Masalah
-                    </a>`,
         });
+
+        if (navigator.onLine) {
+            Toast.fire({
+                icon: 'error',
+                title: 'ERROR',
+                text: message,
+                footer: /* html */
+                        `<a href="https://github.com/fawwaz-m-umam/Katalog-Restoran/issues">
+                            Laporkan Masalah
+                        </a>`,
+            });
+        } else {
+            Toast.fire({
+                icon: 'error',
+                title: 'ERROR',
+                text: 'Tidak ada koneksi internet',
+            });
+        }
     },
 
     _showSuccessMessage() {

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import routes from '../routes/routes';
 import UrlParser from '../routes/url-parser';
 import DrawerInitiator from '../utils/drawer-initiator';
@@ -24,6 +25,21 @@ class App {
     async renderPage() {
         const url = UrlParser.parseUrlWithCombiner();
         const page = routes[url];
+
+        if (!page) {
+            this.content.innerHTML = '';
+            Swal.fire({
+                title: 'Oops..!',
+                text: '404 PAGE NOT_FOUND',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 3500,
+            });
+
+            setTimeout(async () => {
+                window.location.replace('/');
+            }, 4500);
+        }
 
         this.content.innerHTML = await page.render();
         await page.afterRender();
