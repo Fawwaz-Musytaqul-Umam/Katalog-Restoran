@@ -1,8 +1,9 @@
 import '../../components/restaurant-detail';
 import '../../components/restaurant-reviews';
 import DicodingRestaurantApiSource from '../../data/api/dicoding-restaurant-source';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import urlParser from '../../routes/url-parser';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 
 class Detail {
     static async render() {
@@ -24,8 +25,9 @@ class Detail {
         restaurantReviewsElement.reviews = restaurantDetailData.customerReviews;
         restaurantReviewsElement.restaurantId = url.id;
 
-        LikeButtonInitiator.init({
+        LikeButtonPresenter.init({
             likeButtonContainer: document.querySelector('#likeButtonContainer'),
+            favoriteRestaurant: FavoriteRestaurantIdb,
             restaurant: {
                 id: restaurantDetailData.id,
                 name: restaurantDetailData.name,
