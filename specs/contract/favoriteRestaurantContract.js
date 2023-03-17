@@ -18,7 +18,7 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
             .toEqual([]);
     });
 
-    it('can return all of the movies that have been added', async () => {
+    it('can return all of the restaurant that have been added', async () => {
         favoriteRestaurant.putRestaurant({id: 1});
         favoriteRestaurant.putRestaurant({id: 2});
 
