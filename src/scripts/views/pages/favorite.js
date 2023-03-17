@@ -5,7 +5,7 @@ class Favorite {
     static async render() {
         return /* html */ `
             <h2 class="content-title">Favorit</h2>
-            <p class="no-favorite-restaurant">Belum ada restoran Favorit</p>
+            <p class="empty-favorite-restaurant">Belum ada restoran Favorit</p>
             <restaurants-container></restaurants-container>
         `;
     }
@@ -16,7 +16,7 @@ class Favorite {
         restaurantsContainer.restaurants = favoriteRestaurantData;
 
         if (favoriteRestaurantData.length > 0) {
-            const noFavoriteRestaurantElement = document.querySelector('.no-favorite-restaurant');
+            const noFavoriteRestaurantElement = document.querySelector('.empty-favorite-restaurant');
             noFavoriteRestaurantElement.remove();
         }
     }
