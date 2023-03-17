@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -30,9 +31,13 @@ module.exports = {
                 {
                     from: path.resolve(__dirname, 'src/public/'),
                     to: path.resolve(__dirname, 'dist/'),
+                    globOptions: {
+                        ignore: ['**/images/**'],
+                    },
                 },
             ],
         }),
         new MiniCssExtractPlugin({filename: 'main.css'}),
+        new CleanWebpackPlugin(),
     ],
 };

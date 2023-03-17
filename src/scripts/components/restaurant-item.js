@@ -1,4 +1,6 @@
 import CONFIG from '../global/config';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 /* eslint-disable no-tabs */
 class RestaurantItem extends HTMLElement {
@@ -17,9 +19,9 @@ class RestaurantItem extends HTMLElement {
 			</div>
 
 			<img
-				src="${CONFIG.BASE_IMAGE_URL}/${pictureId}"
+				data-src="${CONFIG.BASE_IMAGE_URL}/${pictureId}"
 				alt="Restoran: ${name}"
-				class="restaurant-item_thumbnail"
+				class="restaurant-item_thumbnail lazyload"
 			/>
 
 			<div class="restaurant-item_content">
