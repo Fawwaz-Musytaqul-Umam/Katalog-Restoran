@@ -5,7 +5,7 @@ Before(({I}) => {
 });
 
 Scenario('Liking Restaurant', async ({I}) => {
-    I.see('Belum Ada Restaurant Favorit Tersimpan', '.empty-fav');
+    I.see('Belum ada restaurant Favorit', '.empty-favorite-restaurant');
 
     I.amOnPage('/');
     I.waitForElement('restaurant-item a', 2);
