@@ -12,18 +12,13 @@ exports.config = {
     output: 'e2e/outputs',
     helpers: {
         Puppeteer: {
-            // url: 'http://localhost:9000',
+            url: 'http://localhost:9000',
             show: true,
             windowSize: '1200x900',
         },
     },
     include: {
         I: './steps_file.js',
-    },
-    plugins: {
-        screenshotOnFail: {
-            enabled: true,
-        },
     },
     name: 'restaurant-apps',
 };

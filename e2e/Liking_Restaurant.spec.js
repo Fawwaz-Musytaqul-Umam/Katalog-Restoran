@@ -1,7 +1,7 @@
 Feature('liking restaurant');
 
 Before(({I}) => {
-    I.amOnPage('http://localhost:9000/#/favorite');
+    I.amOnPage('/#/favorite');
 });
 
 Scenario('Liking Restaurant', async ({I}) => {
