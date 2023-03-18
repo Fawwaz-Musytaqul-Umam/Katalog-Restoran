@@ -58,6 +58,5 @@ module.exports = merge(common, {
                 }),
             ],
         }),
-        new BundleAnalyzerPlugin(),
     ],
 });
