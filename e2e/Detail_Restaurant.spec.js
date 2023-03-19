@@ -1,5 +1,5 @@
 const assert = require('assert');
-Feature('liking restaurant');
+Feature('Detail Restaurant');
 
 Before(({I}) => {
     I.amOnPage('/#/favorite');
@@ -12,7 +12,7 @@ Scenario('Liking a Restaurant', async ({I}) => {
     I.waitForElement('.restaurant-item_name a', 3);
     I.seeElement('.restaurant-item_name a');
 
-    const firstRestaurant = locate('.restaurant-tem a').first();
+    const firstRestaurant = locate('.restaurant-item_name a').first();
     const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
 
     I.click(firstRestaurant);
@@ -52,11 +52,11 @@ Scenario('Unlike a Restaurant', async ({I}) => {
 
     I.amOnPage('/#/favorite');
     I.dontSee('.restaurant-item_name');
-    I.see('Belum ada Restoran Favorit', '.empty-favorite-restaurant');
+    I.see('Belum ada restoran Favorit', '.empty-favorite-restaurant');
 });
 
 Scenario('Add new Review', async ({I}) => {
-    I.see('Belum ada restaurant Favorit', '.empty-favorite-restaurant');
+    I.see('Belum ada restoran Favorit', '.empty-favorite-restaurant');
 
     I.amOnPage('/');
     I.waitForElement('.restaurant-item_name a', 3);
@@ -64,16 +64,23 @@ Scenario('Add new Review', async ({I}) => {
 
     const firstRestaurant = locate('.restaurant-item_name a').first();
     I.click(firstRestaurant);
-    I.waitForElement('#inputReviewName', 3);
-    I.waitForElement('#inputReviewDescription', 3);
 
+    I.waitForElement('#inputReviewName', 3);
+    I.seeElement('#inputReviewName');
     I.appendField('#inputReviewName', 'CodeceptJs');
-    I.appendField('#inputReviewDescription', 'ini review menggunakan test end to end');
+
+    I.waitForElement('#inputReviewDescription', 3);
+    I.seeElement('#inputReviewDescription');
+    I.appendField('#inputReviewDescription', 'Hai, kenalkan aku CodeceptJs si automated testing');
+
+    I.seeElement('#submitNewReview');
     I.click('#submitNewReview');
+    I.waitForElement('.swal2-popup');
+    I.seeElement('.swal2-popup');
 
     I.wait(8);
 
-    const newReview = locate('.cusromer-review .name').last();
+    const newReview = locate('.customer-review .name').last();
     const newReviewName = await I.grabTextFrom(newReview);
 
     assert('CodeceptJs', newReviewName);
