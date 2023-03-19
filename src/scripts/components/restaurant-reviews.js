@@ -165,7 +165,7 @@ class RestaurantReviews extends HTMLElement {
             reviewsTemplate += /* html */ `
                 <div class="customer-review">
                     <img
-                        src="./images/user.png"
+                        src="./images/icons/user.png"
                         alt="user icon"
                         class="customer-icon">
 

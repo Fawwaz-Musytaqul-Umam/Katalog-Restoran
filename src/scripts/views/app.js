@@ -2,13 +2,15 @@ import Swal from 'sweetalert2';
 import routes from '../routes/routes';
 import UrlParser from '../routes/url-parser';
 import DrawerInitiator from '../utils/drawer-initiator';
+import HeroInitiator from '../utils/hero-initiator';
 
 class App {
-    constructor({menuButton, drawer, heroContent, content}) {
+    constructor({menuButton, drawer, hero, heroContent, mainContent}) {
         this.menuButton = menuButton;
         this.drawer = drawer;
+        this.hero = hero;
         this.heroContent = heroContent;
-        this.content = content;
+        this.mainContent = mainContent;
 
         this._initialAppShell();
     }
@@ -18,7 +20,11 @@ class App {
             menuButton: this.menuButton,
             drawer: this.drawer,
             heroContent: this.heroContent,
-            content: this.content,
+            content: this.mainContent,
+        });
+
+        HeroInitiator.init({
+            hero: this.hero,
         });
     }
 
@@ -27,7 +33,7 @@ class App {
         const page = routes[url];
 
         if (!page) {
-            this.content.innerHTML = '';
+            this.mainContent.innerHTML = '';
             Swal.fire({
                 title: 'Oops..!',
                 text: '404 PAGE NOT_FOUND',
@@ -41,7 +47,7 @@ class App {
             }, 4500);
         }
 
-        this.content.innerHTML = await page.render();
+        this.mainContent.innerHTML = await page.render();
         await page.afterRender();
 
         const skipLinkElement = document.querySelector('.skip-link');

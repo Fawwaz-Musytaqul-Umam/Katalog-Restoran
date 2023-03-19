@@ -9,8 +9,9 @@ import App from './views/app';
 const app = new App({
     menuButton: document.querySelector('#menuButton'),
     drawer: document.querySelector('#drawer'),
+    hero: document.querySelector('.hero'),
     heroContent: document.querySelector('.hero-content'),
-    content: document.querySelector('#mainContent'),
+    mainContent: document.querySelector('#mainContent'),
 });
 
 window.addEventListener('hashchange', () => {
