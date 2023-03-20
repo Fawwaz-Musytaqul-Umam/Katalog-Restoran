@@ -13,16 +13,15 @@ if (!fs.existsSync(heroImageDestinationPath)) {
 fs.readdirSync(heroImagesPath)
     .forEach((image) => {
         sharp(`${heroImagesPath}/${image}`)
-            .resize(1000)
             .toFile(path.resolve(
                 __dirname,
                 `${heroImageDestinationPath}/${image.split('.').slice(0, -1).join('.')}-large.jpg`),
             );
 
         sharp(`${heroImagesPath}/${image}`)
-            .resize(480)
+            .resize(500)
             .toFile(path.resolve(
                 __dirname,
-                `${heroImageDestinationPath}/${image.split('.').slice(0, -1).join('.')}-small.jpg`),
+                `${heroImageDestinationPath}/${image.split('.').slice(0, -1).join('.')}-medium.jpg`),
             );
     });

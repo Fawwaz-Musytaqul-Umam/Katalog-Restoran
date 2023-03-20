@@ -1,7 +1,7 @@
 const {merge} = require('webpack-merge');
 const path = require('path');
 const common = require('./webpack.common');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -18,4 +18,14 @@ module.exports = merge(common, {
         },
         compress: true,
     },
+    plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/public/'),
+                    to: path.resolve(__dirname, 'dist/'),
+                },
+            ],
+        }),
+    ],
 });

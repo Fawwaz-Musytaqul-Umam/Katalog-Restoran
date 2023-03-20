@@ -3,6 +3,9 @@ const {merge} = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -23,6 +26,11 @@ module.exports = merge(common, {
             },
         ],
     },
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin(),
+        ],
+    },
     plugins: [
         new WorkboxWebpackPlugin.GenerateSW({
             swDest: './sw.bundle.js',
@@ -33,6 +41,17 @@ module.exports = merge(common, {
                     quality: 50,
                     progressive: true,
                 }),
+            ],
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/public/'),
+                    to: path.resolve(__dirname, 'dist/'),
+                    globOptions: {
+                        ignore: ['**/images/heros/**'],
+                    },
+                },
             ],
         }),
     ],
