@@ -4,7 +4,6 @@ class RestaurantReviews extends HTMLElement {
     constructor() {
         super();
         this.restaurantId = null;
-        this.shadowDOM = this.attachShadow({mode: 'open'});
     }
 
     set reviews(reviews) {
@@ -13,7 +12,7 @@ class RestaurantReviews extends HTMLElement {
     }
 
     render() {
-        this.shadowDOM.innerHTML = /* html */ `
+        this.innerHTML = /* html */ `
             ${this.createStylesTemplate()}
 
             <article class="container">
@@ -42,7 +41,7 @@ class RestaurantReviews extends HTMLElement {
                 </div>
             </article>
         `;
-        const submitNewReviewBtn = this.shadowDOM.querySelector('#submitNewReview');
+        const submitNewReviewBtn = this.querySelector('#submitNewReview');
         submitNewReviewBtn.addEventListener('click', (event) => {
             event.stopPropagation();
             this.sendReviewData();
@@ -165,9 +164,9 @@ class RestaurantReviews extends HTMLElement {
             reviewsTemplate += /* html */ `
                 <div class="customer-review">
                     <img
-                        src="./images/icons/user.png"
+                        data-src="./images/user.png"
                         alt="user icon"
-                        class="customer-icon">
+                        class="customer-icon lazyload">
 
                     <div>
                         <h4 class="name">${review.name}</h4>
@@ -182,8 +181,8 @@ class RestaurantReviews extends HTMLElement {
     }
 
     async sendReviewData() {
-        const name = this.shadowDOM.querySelector('#inputReviewName').value;
-        const review = this.shadowDOM.querySelector('#inputReviewDescription').value;
+        const name = this.querySelector('#inputReviewName').value;
+        const review = this.querySelector('#inputReviewDescription').value;
 
         if (!name && !review && !this.restaurantId) return;
 
