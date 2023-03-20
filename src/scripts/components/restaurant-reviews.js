@@ -164,7 +164,7 @@ class RestaurantReviews extends HTMLElement {
             reviewsTemplate += /* html */ `
                 <div class="customer-review">
                     <img
-                        data-src="./images/user.png"
+                        data-src="./images/icons/user.png"
                         alt="user icon"
                         class="customer-icon lazyload">
 
